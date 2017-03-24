@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Core.Views.DetailsView"
+	Title="Details"
+>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem 
+			Text="Save"
+			Command="{Binding SaveCommand}"
+		/>
+	</ContentPage.ToolbarItems>
+	
+	<ContentPage.Content>
+		<ScrollView Padding="10">
+		    <StackLayout Spacing="10">
+				<Image Source="{Binding Photo}" HeightRequest="80">
+			        <Image.GestureRecognizers>
+			            <TapGestureRecognizer 
+			                Command="{Binding ChangePhotoCommand}"
+			            />
+			        </Image.GestureRecognizers>
+			    </Image>
+				
+		        <Entry
+				    Text="{Binding Attendee.Name}"
+				    Placeholder="Name"
+				/>
+
+				<Entry
+				    Text="{Binding Attendee.Email}"
+				    Placeholder="E-mail"
+				/>
+
+				<Button 
+			        Text="Delete"
+			        Command="{Binding DeleteCommand}"
+			    />
+		    </StackLayout>    
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>
